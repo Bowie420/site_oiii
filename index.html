@@ -19,10 +19,13 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 1);
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
             margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -32,25 +35,21 @@
 
         p {
             color: #ffffff;
-            line-height: 0.6;
+            line-height: 1.2;
+            text-align: center;
         }
 
-        .container::after {
-    content: "";
-    position: absolute;
-    top: 120px;
-    
-    right: 170px; 
-    width: 200px;
-    height: 200px;
-    background-image: url('https://i.pinimg.com/564x/cb/65/1f/cb651f287a98ba74b780280c15fe0ebd.jpg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px; 
-}      
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://i.pinimg.com/564x/cb/65/1f/cb651f287a98ba74b780280c15fe0ebd.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
 
-
- .music-player {
+        .music-player {
             text-align: center;
             margin-top: 20px;
         }
@@ -58,18 +57,19 @@
 </head>
 <body>
     <div class="container">
+        <div class="profile-image"></div>
         <h1>XD</h1>
-        <p>Oiii!1!!1!X3 </p>
+        <p>Oiii!1!!1!X3</p>
         <p>O meu nome é Ana, tenho 19 anos e vivo no Porto.</p>
-        <p> A minha cor favorita é rosa mas só me visto de preto XP. </p>
-        <p>Tenho uma bulldog francês muito fofa :3  </p>
-        <p>Andei na Soares dos Reis, onde me apaixonei por todos os tipos de arte </p> 
+        <p>A minha cor favorita é rosa mas só me visto de preto XP.</p>
+        <p>Tenho uma bulldog francês muito fofa :3</p>
+        <p>Andei na Soares dos Reis, onde me apaixonei por todos os tipos de arte</p> 
         <p>e fiz o meu primeiro filme de animação.</p>
-        <p> Apesar disso vim para videojogos porque não queria ser desempregada T-T.</p>
-       
+        <p>Apesar disso vim para videojogos porque não queria ser desempregada T-T.</p>
     </div>
-      <!-- Music player -->
-      <div class="music-player">
+    
+    <!-- Music player -->
+    <div class="music-player">
         <audio controls>
             <source src="Yummy.mp3" type="audio/mpeg"> 
             Your browser does not support the audio element.
