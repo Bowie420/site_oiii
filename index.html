@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O site</title>
-    <style>
-        body {
-            background-image: url('unnamed.gif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ffffff;
-        }
-
-        p {
-            color: #ffffff;
-            line-height: 1.2;
-            text-align: center;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            background-image: url('https://i.pinimg.com/564x/cb/65/1f/cb651f287a98ba74b780280c15fe0ebd.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .music-player {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luzinha</title>
+<style>
+    body {
+        transition: background-color 1s ease;
+        background-color: #f0e6ff;
+        font-family: Georgia;
+        text-align: center;
+        margin: 30px 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        text-transform: lowercase;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+    button.light {
+        background-color: #ff64a7;
+        color: rgb(0, 0, 0);
+    }
+    button.dark {
+        background-color: #000000;
+        color: rgb(255, 188, 227);
+    }
+    button.light:hover {
+        background-color: #db008a;
+    }
+    button.dark:hover {
+        background-color: #db008a;
+    }
+    #lightOffImg,
+    #lightOnImg {
+        max-width: 500px;
+        height: auto;
+        display: none;
+        margin-bottom: 10px;
+    }
+    #lightOffImg.active,
+    #lightOnImg.active {
+        display: inline;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-image"></div>
-        <h1>XD</h1>
-        <p>Oiii!1!!1!X3</p>
-        <p>O meu nome é Ana, tenho 19 anos e vivo no Porto.</p>
-        <p>A minha cor favorita é rosa mas só me visto de preto XP.</p>
-        <p>Tenho uma bulldog francês muito fofa :3</p>
-        <p>Andei na Soares dos Reis, onde me apaixonei por todos os tipos de arte</p> 
-        <p>e fiz o meu primeiro filme de animação.</p>
-        <p>Apesar disso vim para videojogos porque não queria ser desempregada T-T.</p>
-    </div>
+    <img src="bulb-off.png" alt="Light Off" id="lightOffImg">
+    <img src="bulb-on.png" alt="Light On" id="lightOnImg" class="active">
     
-    <!-- Music player -->
-    <div class="music-player">
-        <audio controls>
-            <source src="Yummy.mp3" type="audio/mpeg"> 
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+    <button id="toggleButton" class="light">turn off</button>
+
+    <script>
+        var button = document.getElementById('toggleButton');
+        var lightOffImg = document.getElementById('lightOffImg');
+        var lightOnImg = document.getElementById('lightOnImg');
+
+        button.addEventListener('click', function() {
+            var currentColor = window.getComputedStyle(document.body).backgroundColor;
+
+            if (currentColor === 'rgb(240, 230, 255)') {
+                document.body.style.backgroundColor = '#4d0021';
+                button.textContent = 'turn on';
+                button.classList.remove('light');
+                button.classList.add('dark');
+                lightOffImg.classList.add('active');
+                lightOnImg.classList.remove('active');
+            } else {
+                document.body.style.backgroundColor = '#f0e6ff';
+                button.textContent = 'turn off';
+                button.classList.remove('dark');
+                button.classList.add('light');
+                lightOffImg.classList.remove('active');
+                lightOnImg.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
